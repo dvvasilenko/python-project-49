@@ -11,7 +11,7 @@ dependencies = [
 [project.scripts]
 brain-games = "brain_games.scripts.brain_games:main"
 brain-even = "brain_games.games.brain_even:main"
-brain-calc = "brain_games.games.brain_calc:main"
+brain-calcul = "brain_games.scripts.game_logic:main"
 
 [build-system]
 requires = ["hatchling"]

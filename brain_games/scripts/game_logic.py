@@ -1,34 +1,23 @@
-from brain_games.cli import welcome_user
-from brain_games.games.brain_only_calc import random_calculator
+import prompt
 
-name = welcome_user()
-
-def game_logic(name):
+def run_game(description, generate_round):
+    
     print('Welcome to the Brain Games!')
-    print('What is the result of the expression?')
+    name = prompt.string('May I have your name? ')
+    print(f'Hello, {name}!')
+    print(description)
     attempts_number = 1
-
-    # What game to play
-
-
+    
     while attempts_number <= 3:
         attempts_number += 1
-        expression, correct_answer = random_calculator()
-        
+        expression, correct_answer = generate_round()
         print(f'Question: {expression}')
-        
         user_answer = input('Your answer: ')
-        
-        if user_answer.lstrip('-').isnumeric() and correct_answer == int(user_answer):
-            print('Correct!')
-        else:
+
+        if user_answer != correct_answer:
             print('Wrong answer ;(. Please try again.')
-            break
+            return
+        
+        print('Correct!')
 
     print(f'Congratulations, {name}!')
-
-def main():
-    game_logic(name)
-
-if __name__ == '__main__':
-    main()

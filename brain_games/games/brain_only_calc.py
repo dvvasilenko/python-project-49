@@ -1,7 +1,10 @@
 import random
+from brain_games.scripts.game_logic import run_game
 
-def random_calculator():
-    """Generate a random arithmetic expression and its result"""
+description = 'What is the result of the expression?'
+
+def generate_round():
+    
     operators = ['+', '-', '*']
     num1 = random.randint(1, 10)
     num2 = random.randint(1, 10)
@@ -15,10 +18,10 @@ def random_calculator():
         correct_answer = num1 * num2
 
     expression = f"{num1} {operator} {num2}"
-    return expression, correct_answer
+    return expression, str(correct_answer)
 
-def main():
-    random_calculator()
+def play():
+    run_game(description, generate_round)
 
 if __name__ == '__main__':
-    main()
+    play()
